@@ -1,9 +1,9 @@
 # soro_benin_hackathon
 
 <div style="color: #FF3E00; font-size: 2em;">
-    This application is based on technique presented in <b> Linux Foundation's Open Source Summit</b>  at Seattle: <I> "Translation Augmented Generation" </i> <br>
-    Link: https://sched.co/1aBOj <br>
-    by : Raghavan Muthuregunathan
+    This application is based on technique presented in <b> Linux Foundation's Open Source Summit</b>  at Seattle: <I> <b> "Translation Augmented Generation" </b> </i> by Raghavan Muthuregunathan. <br>
+    <br>
+    Link: https://sched.co/1aBOj 
 </div>
 
 # Sọrọ Benin: Afara Ede
