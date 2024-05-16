@@ -3,7 +3,7 @@
 </div>
 <div style="color: #2C3E50; font-size: 1em;">
     This application is based on technique presented in Linux Foundation's Open Source summit at Seattle: "Translation Augmented Generation" <br>
-    Link: [https://sched.co/1aBOj](https://sched.co/1aBOj) <br>
+    Link: https://sched.co/1aBOj <br>
     by : Raghavan Muthuregunathan
 </div>
 
