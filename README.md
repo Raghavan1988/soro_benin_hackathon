@@ -1,7 +1,7 @@
 # soro_benin_hackathon
 
 <div style="color: #FF3E00; font-size: 2em;">
-    This application is based on technique presented in ** Linux Foundation's Open Source summit** at Seattle: _"Translation Augmented Generation"_ <br>
+    This application is based on technique presented in <b> Linux Foundation's Open Source Summit</b>  at Seattle: <I> "Translation Augmented Generation" </i> <br>
     Link: https://sched.co/1aBOj <br>
     by : Raghavan Muthuregunathan
 </div>
