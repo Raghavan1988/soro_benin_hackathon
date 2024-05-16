@@ -101,7 +101,7 @@ st.markdown("- Mi nɔxɔ kɛ gbè na mi ɖo ɖe mi gbè nu wɛnnu mi le yɔnmu w
 st.markdown("- Vous pouvez poser des questions dans n'importe quelle langue et soit générer une image, soit obtenir une réponse")
 st.markdown("- You can ask anything in any language and either generate an image or answer a question  in any Benin language")
 
-mode = st.radio("Choose Mode:", ("Text Mode", "Image Mode"))
+mode = st.radio("Choose Mode:", ("Image Mode", "Text Mode"))
 
 example1 = "Omokunrin ati omobirin ti won n sere ni oko agbado ni ilu Benin"
 example2 = "Irugbin wo ni o yẹ ki o gbin lakoko ogbele ni Benin?"
