@@ -110,7 +110,7 @@ st.markdown("- " + example1)
 st.markdown("- " + example2)
 st.markdown("- " + example3)
 
-input_text = st.text_area("Enter the text you want to translate or describe for image generation:")
+input_text = st.text_area("Enter the question or describe for image generation (Use any Benin Language like Yoruba):")
 
 
 if st.button("Submit"):
