@@ -6,6 +6,7 @@ from io import BytesIO
 import base64
 import replicate
 import json
+st.set_page_config(layout="wide")
 
 
 client = OpenAI()
