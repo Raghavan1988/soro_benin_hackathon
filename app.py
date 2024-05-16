@@ -103,6 +103,18 @@ st.markdown("- You can ask anything in any language and either generate an image
 
 mode = st.radio("Choose Mode:", ("Text Mode", "Image Mode"))
 
+example1 = "Omokunrin ati omobirin ti won n sere ni oko agbado ni ilu Benin"
+example2 = "Irugbin wo ni o yẹ ki o gbin lakoko ogbele ni Benin?"
+example3 = "Kini awọn ibi-ajo irin-ajo eco olokiki ni Benin?"
+if st.button("Example 1"):
+    input_text = example1
+
+if st.button("Example 2"):
+    input_text = example2
+
+if st.button("Example 3"):
+    input_text = example3
+
 input_text = st.text_area("Enter the text you want to translate or describe for image generation:")
 
 if st.button("Submit"):
