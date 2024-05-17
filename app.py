@@ -97,6 +97,7 @@ def get_replicate_url(description):
     return output[0]
 
 st.title("Sọrọ Benin: Afara Ede")
+st.markdown(" by Raghavan Muthuregunathan")
 st.markdown("- O le beere ibeere ni eyikeyi ede ati boya ṣe aworan tabi gba idahun")
 st.markdown("- Mi nɔxɔ kɛ gbè na mi ɖo ɖe mi gbè nu wɛnnu mi le yɔnmu wa ɖa hɛn dɔ.")
 st.markdown("- Vous pouvez poser des questions dans n'importe quelle langue et soit générer une image, soit obtenir une réponse")
