@@ -8,7 +8,6 @@ import replicate
 import json
 st.set_page_config(layout="wide")
 
-
 client = OpenAI()
 
 def translate_to_english(text):
@@ -16,7 +15,7 @@ def translate_to_english(text):
         model="gpt-4o",
         messages=[
             {"role": "system", "content": "You are a helpful translator to English."},
-            {"role": "user", "content": "Translate it to English. Benin language: " + text + " Strictly output English translation ONLY"}
+            {"role": "user", "content": "Translate it to English. Tamil language: " + text + " Strictly output English translation ONLY"}
         ])
     return response.choices[0].message.content
 
@@ -31,8 +30,8 @@ def detect_n_translate(english_response, original_input):
     response = client.chat.completions.create(
         model="gpt-4",
         messages=[
-            {"role": "system", "content": "You are a helpful translator from english to " + language},
-            {"role": "user", "content": original_input +"Translate the following english content to Benin Language: " + language + " English: " + english_response + " output only translated content." }
+            {"role": "system", "content": "You are a helpful translator from English to " + language},
+            {"role": "user", "content": original_input +"Translate the following English content to Tamil Language: " + language + " English: " + english_response + " output only translated content." }
         ])
     return (language, response.choices[0].message.content)
 
@@ -96,47 +95,45 @@ def get_replicate_url(description):
     print(output)
     return output[0]
 
-st.title("Sọrọ Benin: Afara Ede")
-st.markdown(" by Raghavan Muthuregunathan")
-st.markdown("- O le beere ibeere ni eyikeyi ede ati boya ṣe aworan tabi gba idahun")
-st.markdown("- Mi nɔxɔ kɛ gbè na mi ɖo ɖe mi gbè nu wɛnnu mi le yɔnmu wa ɖa hɛn dɔ.")
-st.markdown("- Vous pouvez poser des questions dans n'importe quelle langue et soit générer une image, soit obtenir une réponse")
-st.markdown("- You can ask anything in any language and either generate an image or answer a question  in any Benin language")
+st.title("தமிழ் மொழியில் கேளுங்கள்: சோரில் தமிழில் பதில் பெறுங்கள்")
+st.markdown("Raghavan Muthuregunathan என்பவரால் உருவாக்கப்பட்டது")
+st.markdown("- நீங்கள் எந்தவொரு கேள்வியையும் தமிழ் மொழியில் கேட்டு, either உருவாக்கிய படத்தை பெறலாம் அல்லது பதிலை பெறலாம்")
+st.markdown("- நீங்கள் தமிழில் கேட்கலாம் மற்றும் either படம் உருவாக்க அல்லது பதிலை பெறலாம்")
+st.markdown("- நீங்கள் உங்களுக்குத் தேவையான பதிலை தமிழில் பெறலாம்")
 
-mode = st.radio("Choose Mode:", ("Image Mode", "Text Mode"))
+mode = st.radio("பயன்முறை தேர்வு:", ("Generate Image", "Answer question"))
 
-example1 = "Omokunrin ati omobirin ti won n sere ni oko agbado ni ilu Benin"
-example2 = "Irugbin wo ni o yẹ ki o gbin lakoko ogbele ni Benin?"
-example3 = "Kini awọn ibi-ajo irin-ajo eco olokiki ni Benin?"
+example1 = "பருத்தி தாவரங்களில் பூச்சிகள் தாக்கத்தை குறைப்பதற்கான சிறந்த முறைகள் எவை?"
+example2 = "காய்கறிகளை தக்கவைத்து வளர்க்க சிறந்த முறைகள் என்ன?"
+example3 = "தேன் வியாபாரம் மூலம் தமிழ்நாட்டில் சிறப்பான வருமானம் ஈட்டுவது எப்படி?"
 st.markdown("- " + example1)
 st.markdown("- " + example2)
 st.markdown("- " + example3)
 
-input_text = st.text_area("Enter the question or describe for image generation (Use any Benin Language like Yoruba):")
+input_text = st.text_area("பட உருவாக்கத்திற்காக கேள்வியை அல்லது விவரத்தை தமிழில் உள்ளீடு செய்யவும்:")
 
-
-if st.button("Submit"):
+if st.button("submit"):
     if input_text:
-        if mode == "Text Mode":
+        if mode == "உரையியல் முறை":
             translated_text = translate_to_english(input_text)
             english_response = get_perplexity_response(translated_text)
-            st.subheader("Response  in local language")
+            st.subheader("தமிழில் பதில்:")
             (local_language, local_response) = detect_n_translate(english_response, input_text)
             st.write(local_response)
-            st.markdown('<font color="red" size="small">LLMs are known to hallucinate</font>', unsafe_allow_html=True)            
+            st.markdown('<font color="red" size="small">LLMs பலமுறை தவறாக பதிலளிக்கின்றன</font>', unsafe_allow_html=True)            
             st.write("\n\n-------\n")
             with st.expander("Debug output"):
-                st.write("Input in english:" + translated_text.strip())
+                st.write("ஆங்கிலத்தில் உள்ளீடு:" + translated_text.strip())
                 st.write(english_response)
                 st.write("---------")
-                st.write("detected language :" + local_language)
+                st.write("கண்டறியப்பட்ட மொழி:" + local_language)
 
-        elif mode == "Image Mode":
+        elif mode == "படமுறை":
             image_url = generate_image(input_text)
             if image_url:
-                st.subheader("Generated Image:")
+                st.subheader("உருவாக்கப்பட்ட படம்:")
                 st.image(image_url)
             else:
-                st.error("Failed to generate image.")
+                st.error("படம் உருவாக்க இயலவில்லை.")
     else:
-        st.error("Please enter some text to translate or describe for image generation.")
+        st.error("பதிலை பெற நீங்கள் ஏதேனும் உள்ளீடு செய்ய வேண்டும்.")
